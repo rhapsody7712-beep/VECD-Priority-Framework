@@ -1,7 +1,7 @@
 # VECD Priority Framework
 
 A structured, governance-ready prioritization framework for teams that need
-more than gut feel — and more than a spreadsheet — to make defensible sequencing
+more than gut feel and more than a spreadsheet to make defensible sequencing
 decisions at scale.
 
 VECD is a **RICE-inspired adaptation** that replaces Reach and Confidence with
@@ -10,10 +10,33 @@ two dimensions better suited to cross-functional and platform-level prioritizati
 is a framework that surfaces not just what is valuable, but what is valuable *now*
 and what can actually *ship*.
 
+Why not RICE? What's lacking ?
+
+Good question. RICE works well for consumer products where reach and impact are the dominant variables.
+But in an enterprise environment, two things tend to matter more in practice — urgency and dependencies.
+Urgency is real. A senior leader needs a demo ready by Thursday. A regulator wants a report next week. 
+That kind of deadline doesn't show up in a RICE score, but it absolutely determines what gets worked on. 
+Cost of Delay captures that pressure honestly instead of pretending it doesn't exist.
+
+Dependencies are where enterprise prioritization gets genuinely complicated. 
+In a Tier 1 enterprise system with anywhere from 500 to 2,000 registered delivery units, 
+
+A feature can be fully built and still go nowhere because one upstream or downstream team isn't ready. 
+The classic example — a platform team finishes their work, but the UI/UX team, 
+who are customer-facing and already sitting on thousands of backlog items, can't pick it up for months. 
+
+The feature isn't live until the customer can see it. Everything else is just inventory.
+This is why VECD treats dependency as a first-class scoring input. Platform teams in an enterprise often operate in a factory model 
+the machine is running, raw materials are ready, next batch is queued - but actual delivery depends on who else shows up. 
+Scoring dependency upfront forces that conversation before the work starts, not after it's done.
+
+
 **Platform-agnostic by design.** VECD does not assume a specific methodology,
 toolchain, team structure, or delivery model. It works equally well for product
 teams, platform teams, data teams, operations, and leadership. Any initiative that
 can be described in terms of value, effort, urgency, and blockers can be scored.
+
+
 
 ### What sets VECD apart
 
