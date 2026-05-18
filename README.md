@@ -15,6 +15,23 @@ toolchain, team structure, or delivery model. It works equally well for product
 teams, platform teams, data teams, operations, and leadership. Any initiative that
 can be described in terms of value, effort, urgency, and blockers can be scored.
 
+### What sets VECD apart
+
+Most prioritization frameworks treat dependency as a passive observation — a note
+in the ticket, a checkbox in a retro. VECD makes it a **scored, first-class
+dimension that directly affects where an initiative lands in the backlog.**
+
+The critical distinction: **the onus of clearing dependencies sits with the
+product manager or business stakeholder, not the engineering team.** A low
+Dependency score is not just a data point — it is an active signal that the PM
+or stakeholder must resolve the blocker before the initiative can be legitimately
+prioritized. Until the score moves toward 5, the initiative cannot compete for
+the top of the backlog, regardless of its value.
+
+This makes the Dependency score a **stakeholder accountability mechanism**. It
+creates a clear and repeatable answer to the question: *"Why isn't this being
+worked on?"* — and it puts the action to fix that answer in the right hands.
+
 ---
 
 ## Table of Contents
@@ -151,30 +168,55 @@ factor in.
 
 **What it measures:** The *dependency burden* on this initiative — **fewer
 dependencies yields a higher score**. An initiative that can start and ship
-independently scores 5. An initiative entangled in upstream blockers, unresolved
-decisions, or third-party timelines scores 0 or 1.
+independently scores 5. An initiative blocked by unresolved external factors
+scores 1 or below.
 
-This dimension reflects execution risk: a high-value initiative that cannot
-move without waiting on three other teams is not a true top-of-backlog item
-until those blockers resolve.
+This is the dimension that separates VECD from every other prioritization
+framework. **The responsibility for moving this score toward 5 belongs to the
+product manager or business stakeholder** — not engineering. A score of 1 is
+not a status update; it is a direct action item for the PM to resolve. Until
+the blockers are cleared and the score rises, the initiative cannot legitimately
+compete for the top of the backlog.
 
-| Score | Anchor                                                                                      |
-|-------|---------------------------------------------------------------------------------------------|
-|   5   | Fully independent. No upstream blockers; can start and ship without waiting on anyone.      |
-|   4   | Mostly independent. One minor dependency with a clear owner and near-term resolution.       |
-|   3   | Moderate. 2–3 dependencies; some have workarounds, but meaningful progress requires them.  |
-|   2   | Heavily dependent. Multiple blockers; meaningful risk of delay from other teams.            |
-|  0–1  | Highly entangled. Blocked by unresolved decisions, external parties, or many other teams.   |
+**A score of 5** means the team has everything it needs: clear requirements,
+no external blockers, no waiting on vendors, no approval gates outstanding.
+The work can start tomorrow.
+
+**A score of 1** means one or more of the following blockers exist and have
+not been resolved. Each of these is the PM's or stakeholder's accountability
+to address:
+
+| Blocker Type | Description |
+|---|---|
+| **External API or vendor dependency** | A third-party service, SDK, contract, or vendor deliverable is required and not yet available or confirmed |
+| **Technology decision outstanding** | An architectural choice, platform selection, or tooling decision has not been made and is blocking scope definition |
+| **Requirements not clarified** | The initiative lacks sufficient definition for engineering to begin — acceptance criteria, scope boundaries, or user stories are incomplete or contested |
+| **Enterprise priority not established** | The initiative has not been formally aligned to or acknowledged within the broader organizational or portfolio roadmap, leaving its mandate ambiguous |
+
+Any one of these factors is sufficient to justify a score of 1. The presence
+of multiple factors does not reduce the score below 1 — the floor is 0, reserved
+for initiatives that are completely blocked with no active path forward.
+
+| Score | Anchor |
+|-------|--------|
+|   5   | Fully unblocked. Requirements clear, no external dependencies, no approvals outstanding. Can start immediately. |
+|   4   | One minor dependency with a named owner, confirmed timeline, and no risk of slipping. |
+|   3   | 2–3 dependencies in progress; partial workarounds exist but full delivery requires resolution. |
+|   2   | Multiple active blockers; at least one has unclear ownership or uncertain timeline. |
+|   1   | Blocked by one or more of: external API/vendor, technology decision, requirements gap, or enterprise priority not confirmed. |
+|   0   | Completely stalled. No active path forward. Should not be in active backlog. |
 
 **Scoring guidance:**
-- Identify *concrete* upstream dependencies, not hypothetical future ones.
-  "We might need the data team" is not the same as "the data team must deliver
-  a schema change before we can begin."
-- Distinguish hard blocks (cannot proceed at all) from soft blocks (a workaround
-  exists, even if suboptimal). A soft dependency is worth 1–2 fewer points than
-  a hard block.
-- Include both technical dependencies (APIs, infrastructure, data pipelines) and
-  process dependencies (approvals, compliance reviews, architectural decisions).
+- Score based on the state of dependencies *today*, not on optimistic assumptions
+  about when they will resolve.
+- When assigning a score of 1, name the specific blocker type in the justification
+  field. This creates the action item for the PM to address.
+- The Dependency score should be **re-evaluated at every planning cycle**. As
+  blockers clear, the score rises — and the initiative's tier rises with it.
+  This makes the framework self-correcting: work that is ready to ship naturally
+  floats up without requiring manual re-ranking.
+- Do not score hypothetical future dependencies. Only blockers that concretely
+  exist today affect the score.
 
 ---
 
@@ -420,10 +462,19 @@ to articulate the consequence of waiting — a discipline that prevents high-val
 but non-urgent work from crowding out time-sensitive work that scores similarly
 on value alone.
 
-**Dependency** addresses execution risk directly. A high-scoring initiative that
-cannot move without resolving three upstream blockers is not equivalent to one
-that can start tomorrow. Surfacing this in the score prevents planning sessions
-from repeatedly cycling back to the same blocked items.
+**Dependency** is the dimension that makes VECD structurally different from
+every other prioritization framework. Rather than treating blockers as passive
+context, VECD scores them — and by scoring them, it assigns accountability.
+A low Dependency score is an explicit, documented signal that the product manager
+or business stakeholder has unresolved work to do before this initiative can
+move up the backlog. The four categories that drive a score toward 1 — external
+API or vendor blockers, outstanding technology decisions, requirements gaps, and
+missing enterprise priority alignment — each map to a specific action the PM or
+stakeholder must take. This makes the backlog self-correcting: as blockers clear,
+Dependency scores rise, and initiatives naturally float to their rightful position
+without requiring manual re-ranking or political negotiation. No other widely-used
+framework creates this feedback loop between stakeholder accountability and backlog
+position in a way that is transparent, scored, and version-controlled.
 
 ### Why the score is additive, not weighted
 
